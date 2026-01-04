@@ -60,6 +60,91 @@ O painel de gestão inclui módulos especializados para uma organização eficie
 
 ---
 
+
+### 📂 Estrutura do Frontend
+
+O frontend foi desenvolvido seguindo princípios de componentização e separação de responsabilidades, utilizando **TypeScript** para garantir a segurança e previsibilidade dos dados em toda a aplicação.
+
+```text
+frontend/
+├── public/              # Arquivos estáticos acessíveis publicamente
+└── src/                 # Código-fonte principal da aplicação
+    ├── components/      # Componentes reutilizáveis (Botões, Modais, Inputs)
+    ├── constants/       # Definições de valores constantes e configurações
+    ├── enquete/         # Módulos específicos para funcionalidades de votação
+    ├── infos/           # Componentes ou arquivos de exibição de informações
+    ├── interfaces/      # Definições de Tipos e Interfaces TypeScript
+    ├── pages/           # Componentes de página (Relatórios, Admin, etc.)
+    ├── redux/           # Configuração do estado global da aplicação
+    ├── routes/          # Definição das rotas e navegação do sistema
+    ├── services/        # Integração com APIs e chamadas HTTP (Axios)
+    ├── utils/           # Funções auxiliares e formatadores lógicos
+    ├── App.tsx          # Componente principal e provedor de contextos
+    ├── index.css        # Estilos globais da aplicação
+    └── main.tsx         # Ponto de entrada da renderização React
+├── .editorconfig        # Padronização de configurações do editor
+├── .eslintrc.json       # Regras de linting para qualidade do código
+├── .gitignore           # Arquivos e pastas ignorados pelo Git
+├── index.html           # Arquivo HTML principal (Template Vite)
+├── package.json         # Dependências e scripts do projeto
+├── tsconfig.json        # Configurações do compilador TypeScript
+└── vite.config.ts       # Configurações de build e servidor do Vite
+
+```
+
+### 🛠️ Descrição dos Diretórios Principais
+
+* **pages/**: Contém as telas principais do sistema. Como visto no código, inclui lógicas complexas como a `RelatorioPage`, que gerencia estados de busca, deleção e exibição de dados.
+* **redux/**: Centraliza o estado global, permitindo que informações como autenticação do usuário ou dados cacheados sejam acessados por qualquer componente.
+* **services/**: Camada responsável pela comunicação com o backend, isolando as chamadas de API (como o objeto `client` usado para deleções) da lógica visual.
+* **interfaces/**: Crucial para o desenvolvimento com TypeScript, onde são definidos os contratos de dados (Ex: `ConversaItem[]`) que o frontend espera receber.
+
+---
+
+
+
+### 📂 Estrutura do Backend (Node.js & TypeScript)
+
+A arquitetura do backend foi desenhada seguindo princípios de modularidade e tipagem forte, utilizando **Prisma** como ORM para garantir uma comunicação eficiente e segura com o banco de dados.
+
+```text
+chat-backend-master/
+├── documentation/       # Documentação técnica e imagens do sistema
+├── prisma/              # Esquemas de modelagem de dados e migrações do banco
+├── src/                 # Código-fonte principal
+│   ├── controllers/     # Lógica de controle e tratamento de requisições
+│   ├── errors/          # Tratamento centralizado de exceções e erros
+│   ├── interfaces/      # Definições de contratos e tipos TypeScript
+│   ├── prisma/          # Instância e configurações do cliente Prisma
+│   ├── routes/          # Definição dos endpoints e fluxos de navegação
+│   ├── messageStore.ts  # Gerenciamento de persistência de mensagens
+│   ├── secret.ts        # Gestão de chaves e variáveis sensíveis
+│   ├── server.ts        # Ponto de entrada e inicialização do servidor
+│   └── sessionStore.ts  # Lógica de controle de sessões de usuários
+├── .gitignore           # Arquivos e diretórios ignorados pelo versionamento
+├── nodemon.json         # Configuração para reinicialização automática em dev
+├── package.json         # Manifesto do projeto, scripts e dependências
+├── Procfile             # Configurações de deploy (ex: Heroku)
+├── readme.md            # Documentação principal do repositório
+├── tsconfig.json        # Regras de compilação do TypeScript
+└── yarn.lock            # Travamento de versões das dependências
+
+```
+
+---
+
+### 🛠️ Tecnologias e Padrões Adotados
+
+* **TypeScript:** Implementado para fornecer autocompletar e reduzir erros em tempo de execução através de interfaces bem definidas.
+* **Prisma ORM:** Utilizado para mapeamento objeto-relacional, facilitando consultas complexas e migrações de banco de dados.
+* **Controllers & Routes:** Separação clara entre a definição das rotas da API e a lógica de execução, facilitando a manutenção e testes.
+* **Session & Message Storage:** Módulos dedicados para gerenciar o estado das conversas e sessões, garantindo que o backend suporte fluxos de chat em tempo real de forma organizada.
+
+---
+
+
+
+
 ## ⚙️ Como Rodar o Projeto (Configuração Técnica)
 
 Este guia descreve como preparar o ambiente para uma aplicação com esta stack:
