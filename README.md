@@ -186,7 +186,7 @@ npm run dev
 
 A implementação trouxe ganhos mensuráveis de eficiência para a Mercadótica:
 
-* **Agilidade no Suporte:** O tempo médio de resposta, que era de **40 minutos** (via WhatsApp/Skype), caiu para apenas **6 minutos** dentro da plataforma.
+* **Agilidade no Suporte:** O tempo médio de resposta, que era de **15 minutos** (via WhatsApp/Skype), caiu para apenas **6 minutos** dentro da plataforma.
 * **Adoção em Massa:** Registrou mais de **200 acessos nas primeiras duas semanas**.
 * **Engajamento a Longo Prazo:** Após um ano, a plataforma ultrapassou a marca de **2.000 acessos**, consolidando-se como a ferramenta estratégica de comunicação da empresa.
 
